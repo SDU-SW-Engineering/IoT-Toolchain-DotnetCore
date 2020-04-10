@@ -47,11 +47,11 @@ namespace BOSToolchain.SAL {
 
             try {
                 var rawResult = Client.ManualConsume(AddServiceResultPath, AutoOffsetReset.Earliest);
-                AddServiceResponse result = JsonConvert.DeserializeObject<AddServiceResponse>(rawResult.Value);
+                AddServiceResponse result = JsonConvert.DeserializeObject<AddServiceResponse>(rawResult.Message.Value);
                 if (result.Success) {
                     return true;
                 } else {
-                    Console.WriteLine(rawResult.Value);
+                    Console.WriteLine(rawResult.Message.Value);
                     return false;
                 }
             } catch (Exception e) {
