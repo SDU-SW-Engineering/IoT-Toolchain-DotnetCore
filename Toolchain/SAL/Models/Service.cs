@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace IoTToolchain.SAL {
+namespace Toolchain.SAL {
     public class Service {
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

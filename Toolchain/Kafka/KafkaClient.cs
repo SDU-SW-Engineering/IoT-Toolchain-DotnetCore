@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Confluent.Kafka;
 
-namespace IoTToolchain.Kafka {
+namespace Toolchain.Kafka {
     public class KafkaClient {
         private string Brokers { get; set; }
         private string UniqueServiceId { get; set; }

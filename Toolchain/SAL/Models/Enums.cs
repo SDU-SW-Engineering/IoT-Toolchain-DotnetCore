@@ -5,7 +5,7 @@ using System;
 using Newtonsoft.Json;
 
 
-namespace IoTToolchain.SAL {
+namespace Toolchain.SAL {
     public enum Modality {
         Angle, CO2, Presence, Flow, Illuminance, Power, Pressure, Rain, Humidity, Temperature, Wind,
         AbsoluteTime, RelativeTime, PowerFlexibility, Performance, Energy, Certainty,

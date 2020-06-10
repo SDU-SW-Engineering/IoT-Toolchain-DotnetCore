@@ -1,6 +1,6 @@
 using System;
 
-namespace IoTToolchain.Kafka {
+namespace Toolchain.Kafka {
     public static class KafkaExtensions {
         public static string GetBrokers(string revertToIfNotSet) {
             return GetEnvironmentVariable("kafka_brokers", revertToIfNotSet);

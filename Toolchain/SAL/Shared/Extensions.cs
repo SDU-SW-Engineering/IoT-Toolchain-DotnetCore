@@ -5,7 +5,7 @@ using Confluent.Kafka;
 using VDS.RDF;
 using VDS.RDF.Writing;
 
-namespace IoTToolchain.SAL {
+namespace Toolchain.SAL {
     public static class IdGenerator {
         public static string NewId(string type) {
             var id = Regex.Replace(Convert.ToBase64String(Guid.NewGuid().ToByteArray()), "[/+=]", "");

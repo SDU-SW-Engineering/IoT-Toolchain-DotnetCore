@@ -2,7 +2,7 @@ using System;
 using System.Text.RegularExpressions;
 using VDS.RDF;
 
-namespace IoTToolchain {
+namespace Toolchain {
     public static class RdfHelpers {
         public static IGraph Graph { get; set; }
         public static INode CreateEntity(string nameSpace, string name) {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IoTToolchain.Brick {
+namespace Toolchain.Brick {
     public class BrickClient {
         // private string ServerURI { get; set; }
 

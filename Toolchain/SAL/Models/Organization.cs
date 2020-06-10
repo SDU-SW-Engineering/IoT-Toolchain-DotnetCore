@@ -4,9 +4,9 @@ using VDS.RDF.Parsing;
 using System;
 using VDS.RDF.Nodes;
 using Newtonsoft.Json;
-using IoTToolchain.SAL.RDFServServiceModels;
+using Toolchain.SAL.RDFServServiceModels;
 
-namespace IoTToolchain.SAL {
+namespace Toolchain.SAL {
     public class Organization {
         [JsonProperty(PropertyName = "legalName")]
         public string LegalName { get; set; }

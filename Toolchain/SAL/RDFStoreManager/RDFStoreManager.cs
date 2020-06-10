@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using IoTToolchain;
-using IoTToolchain.SAL;
+using Toolchain;
+using Toolchain.SAL;
 using VDS.RDF;
 using VDS.RDF.Writing;
 using VDS.RDF.Parsing;
@@ -11,7 +11,7 @@ using VDS.RDF.Query.Datasets;
 using System.Reflection;
 using System.IO;
 
-namespace IoTToolchain.SAL {
+namespace Toolchain.SAL {
     public class RDFStoreManager {
         private readonly Graph _graph;
         private readonly TripleStore _tripleStore;

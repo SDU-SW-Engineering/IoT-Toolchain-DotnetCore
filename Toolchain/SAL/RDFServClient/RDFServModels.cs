@@ -1,9 +1,9 @@
 using System;
 using Confluent.Kafka;
 using Newtonsoft.Json;
-using IoTToolchain.SAL;
+using Toolchain.SAL;
 
-namespace IoTToolchain.SAL {
+namespace Toolchain.SAL {
     public class QueryRequest : RDFServMessage {
         [JsonProperty(PropertyName = "query")]
         public string Query { get; set; }

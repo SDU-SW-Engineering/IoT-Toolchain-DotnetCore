@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Docker.DotNet;
 using Docker.DotNet.Models;
 
-namespace IoTToolchain.Docker {
+namespace Toolchain.Docker {
     public class DockerManager {
         public DockerClient Client { get; set; }
 
