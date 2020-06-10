@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Docker.DotNet;
 using Docker.DotNet.Models;
 
-namespace BOSToolchain.Docker {
+namespace IoTToolchain.Docker {
     public class DockerManager {
         public DockerClient Client { get; set; }
 
@@ -27,6 +27,8 @@ namespace BOSToolchain.Docker {
                     Client = new DockerClientConfiguration(new Uri("unix:///var/run/docker.sock")).CreateClient();
                     break;
                 case OperatingSystemType.Other:
+                    throw new Exception("Operating system not supported");
+                case OperatingSystemType.WSL:
                     throw new Exception("Operating system not supported");
                 default:
                     throw new Exception("Operating system identification error");

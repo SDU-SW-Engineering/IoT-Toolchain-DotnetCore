@@ -4,11 +4,11 @@ using VDS.RDF;
 using VDS.RDF.Writing;
 using VDS.RDF.Parsing;
 using Newtonsoft.Json;
-using BOSToolchain.SAL.RDFServServiceModels;
-using BOSToolchain.SAL;
+using IoTToolchain.SAL.RDFServServiceModels;
+using IoTToolchain.SAL;
 
 
-namespace BOSToolchain.SAL {
+namespace IoTToolchain.SAL {
     public abstract class ServiceEndpoint {
         [JsonProperty(PropertyName = "priority")]
         public int Priority { get; set; }

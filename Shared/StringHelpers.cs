@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 
-namespace BOSToolchain {
+namespace IoTToolchain {
     public static class StringHelpers {
         public static string RemoveWhitespace(this string textString) {
             return Regex.Replace(textString, @"\s+", " ");

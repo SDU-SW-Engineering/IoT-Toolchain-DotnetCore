@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BOSToolchain.SAL.RDFServServiceModels {
+namespace IoTToolchain.SAL.RDFServServiceModels {
     public class OwnedBy {
         public string legalName { get; set; }
     }

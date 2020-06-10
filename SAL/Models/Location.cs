@@ -4,7 +4,7 @@ using VDS.RDF.Parsing;
 using System;
 using Newtonsoft.Json;
 
-namespace BOSToolchain.SAL {
+namespace IoTToolchain.SAL {
     public class Location {
         public string Name { get; set; }
 

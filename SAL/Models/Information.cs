@@ -5,9 +5,9 @@ using VDS.RDF.Writing;
 using VDS.RDF.Parsing;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using BOSToolchain.SAL.RDFServServiceModels;
+using IoTToolchain.SAL.RDFServServiceModels;
 
-namespace BOSToolchain.SAL {
+namespace IoTToolchain.SAL {
     public class Information {
         public string Location { get; set; }
         public Unit HasUnit { get; set; }

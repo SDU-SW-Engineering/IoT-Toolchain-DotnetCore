@@ -1,7 +1,7 @@
 using System;
 using VDS.RDF;
 
-namespace BOSToolchain.SAL {
+namespace IoTToolchain.SAL {
     public static class RdfNS {
         public static string SALUri { get { return @"https://ontology.hviidnet.com/sal.ttl#"; } }
         public static string SALIUri { get { return @"https://ontology.hviidnet.com/sali.ttl#"; } }

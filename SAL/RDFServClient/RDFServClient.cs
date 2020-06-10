@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using BOSToolchain.Kafka;
-using BOSToolchain.SAL.RDFServServiceModels;
+using IoTToolchain.Kafka;
+using IoTToolchain.SAL.RDFServServiceModels;
 using Confluent.Kafka;
 using Newtonsoft.Json;
 
-namespace BOSToolchain.SAL {
+namespace IoTToolchain.SAL {
     public class RDFServClient {
         private string ServerTopic { get; set; }
         private string QueryResultPath { get; set; }

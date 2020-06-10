@@ -2,7 +2,7 @@ using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace BOSToolchain {
+namespace IoTToolchain {
     class RawJsonConverter : JsonConverter {
         public override bool CanConvert(Type objectType) {
             return (objectType == typeof(string));
