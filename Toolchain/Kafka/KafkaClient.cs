@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using Confluent.Kafka;
 
 namespace Toolchain.Kafka {
@@ -14,20 +15,37 @@ namespace Toolchain.Kafka {
             this.Brokers = brokers;
         }
 
+        private void ProducerHandler(DeliveryReport<Null, string> report) {
+            if (!report.Error.IsError) {
+                Console.WriteLine($"Delivered message to {report.TopicPartitionOffset}");
+            } else {
+                Console.WriteLine($"Delivery Error: {report.Error.Reason}");
+            }
+        }
+
         public void SimpleProduce(string topic, List<Message<Null, string>> messages) {
             var producerConfig = new ProducerConfig { BootstrapServers = this.Brokers };
 
-            void handler(DeliveryReport<Null, string> r) {
-                if (!r.Error.IsError) {
-                    Console.WriteLine($"Delivered message to {r.TopicPartitionOffset}");
-                } else {
-                    Console.WriteLine($"Delivery Error: {r.Error.Reason}");
+            using (var producer = new ProducerBuilder<Null, string>(producerConfig).Build()) {
+                foreach (var message in messages) {
+                    producer.Produce(topic, message, ProducerHandler);
                 }
+                // wait for up to 10 seconds for any inflight messages to be delivered.
+                producer.Flush(TimeSpan.FromSeconds(1 + (messages.Count / 10)));
             }
+        }
+
+        public async Task SimpleProduceAsync(string topic, List<Message<Null, string>> messages) {
+            var producerConfig = new ProducerConfig { BootstrapServers = this.Brokers };
 
             using (var producer = new ProducerBuilder<Null, string>(producerConfig).Build()) {
                 foreach (var message in messages) {
-                    producer.Produce(topic, message, handler);
+                    try {
+                        var deliveryReport = await producer.ProduceAsync(topic, message);
+                        Console.WriteLine($"delivered to: {deliveryReport.TopicPartitionOffset}");
+                    } catch (ProduceException<string, string> e) {
+                        Console.WriteLine($"Failed to deliver message: {e.Message} [{e.Error.Code}]");
+                    }
                 }
                 // wait for up to 10 seconds for any inflight messages to be delivered.
                 producer.Flush(TimeSpan.FromSeconds(1 + (messages.Count / 10)));
@@ -82,5 +100,7 @@ namespace Toolchain.Kafka {
                 }
             }
         }
+
+        
     }
 }
