@@ -21,18 +21,36 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
-      - name: Publish NuGet
+      
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Setup .NET Core @ Latest
+        uses: actions/setup-dotnet@v1
+        with:
+          source-url: https://nuget.pkg.github.com/SDU-SW-Engineering/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}        
+
+      - name: Build solution and generate NuGet package
+        run: |  
+          cd Toolchain
+          dotnet pack -c Release -o out  
+
+      - name: Push generated package to GitHub registry
+        run: dotnet nuget push ./Toolchain/out/*.nupkg --skip-duplicate --no-symbols true
+
+    #  - name: Publish NuGet
         # You may pin to the exact commit or the version.
         # uses: brandedoutcast/publish-nuget@c12b8546b67672ee38ac87bea491ac94a587f7cc
-        uses: brandedoutcast/publish-nuget@v2.5.5
-        with:
+     #   uses: brandedoutcast/publish-nuget@v2.5.5
+      #  with:
           # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: Toolchain/Toolchain.csproj
-          VERSION_STATIC: 1.0.0
+       #   PROJECT_FILE_PATH: Toolchain/Toolchain.csproj
+        #  VERSION_STATIC: 1.0.0
           # NuGet package id, used for version detection & defaults to project name
-          PACKAGE_NAME: IoTKafkaToolchain
+          #PACKAGE_NAME: IoTKafkaToolchain
           # API key to authenticate with NuGet server
-          NUGET_KEY: ${{ secrets.GITHUB_TOKEN }}
+         # NUGET_KEY: ${{ secrets.GITHUB_TOKEN }}
           # NuGet server uri hosting the packages, defaults to https://api.nuget.org
-          NUGET_SOURCE: https://nuget.pkg.github.com/SDU-SW-Engineering/index.json
+          #NUGET_SOURCE: https://nuget.pkg.github.com/SDU-SW-Engineering/index.json
