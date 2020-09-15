@@ -39,7 +39,7 @@ jobs:
 
       - name: Push generated package to GitHub registry
         #run: dotnet nuget push ./Toolchain/out/*.nupkg --skip-duplicate --no-symbols true
-        run: curl -X PUT -u "$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}" -F package=Toolchain/out/*.nupkg https://nuget.pkg.github.com/SDU-SW-Engineering/
+        run: curl -X PUT -u "$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}" -F package=@Toolchain/Toolchain.1.0.0.nupkg https://nuget.pkg.github.com/SDU-SW-Engineering/
 
     #  - name: Publish NuGet
         # You may pin to the exact commit or the version.
