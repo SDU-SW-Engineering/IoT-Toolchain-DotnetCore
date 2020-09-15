@@ -29,6 +29,7 @@ jobs:
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: Toolchain/Toolchain.csproj
+          VERSION_STATIC: 1.0.0
           # NuGet package id, used for version detection & defaults to project name
           PACKAGE_NAME: IoTKafkaToolchain
           # API key to authenticate with NuGet server
