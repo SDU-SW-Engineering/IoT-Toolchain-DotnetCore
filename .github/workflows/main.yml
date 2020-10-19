@@ -31,7 +31,12 @@ jobs:
           source-url: https://nuget.pkg.github.com/SDU-SW-Engineering/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}        
-
+      
+      - name: Remove Schemes
+        run: |  
+          cd Toolchain
+          rm -r Schemes
+            
       - name: Build solution and generate NuGet package
         run: |  
           cd Toolchain
