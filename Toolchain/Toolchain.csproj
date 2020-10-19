@@ -9,6 +9,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>IoTKafkaToolchain</RootNamespace>
     <RepositoryUrl>https://github.com/SDU-SW-Engineering/IoT-Toolchain-DotnetCore.git</RepositoryUrl>
+    <Version>1.1.0</Version>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
